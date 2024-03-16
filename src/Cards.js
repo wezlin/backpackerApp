@@ -2,18 +2,29 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-function Cards() {
+import Accordion from 'react-bootstrap/Accordion';
+
+function Cards({inputStringGen, inputStringOriginal}) {
+
+  // let inputStringGen = inputStringGen;
+  // let inputStringOriginal = inputStringOriginal;
+
+
   return (
-    <Card style={{ width: '18rem' }}>
-      {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-            Welcome! this is Landing Page.
-        </Card.Text>
-        <Button variant="primary">Launch app</Button>
-      </Card.Body>
-    </Card>
+    <Accordion defaultActiveKey={['0']} alwaysOpen  data-bs-theme="light">
+      <Accordion.Item eventKey="0">
+        <Accordion.Header>Our thought:</Accordion.Header>
+        <Accordion.Body>
+          {inputStringGen}
+        </Accordion.Body>
+      </Accordion.Item>
+      <Accordion.Item eventKey="1">
+        <Accordion.Header>Reference</Accordion.Header>
+        <Accordion.Body>
+          {inputStringOriginal}
+        </Accordion.Body>
+      </Accordion.Item>
+    </Accordion>
   );
 }
 
